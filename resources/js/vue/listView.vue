@@ -1,27 +1,20 @@
 <template>
-    
     <div>
        list View
-       <div v-for="[item,index] in items " :key="index">
-           <list-item
-                :item="item"
-                class="item"
-           />
-       </div>
-       
+       <ul>
+           <list-item  v-for="item in items" :key="item.id" :item="item" />
+       </ul>
     </div>
-
 </template>
 
 
 <script>
 import listItem from './listItem';
 export default {
-    props:['item'],
     components:{
         listItem
     },
-    data: function(){
+    data(){
         return{
             items:[]
         }
@@ -30,15 +23,14 @@ export default {
         getList(){
             axios.get('api/items')
             .then(response => {
-                this.item = response.data
-                //console.log(response);
+                this.items = response.data
             })
             .catch(error => {
                 console.error(error);
             })
         }
     },
-    created() {
+    mounted() {
         this.getList();
     }
 

@@ -27,7 +27,6 @@ export default {
                 return;
             }
             axios.post('api/item/store',{
-
                 item: this.item
             })
             .then(response =>{

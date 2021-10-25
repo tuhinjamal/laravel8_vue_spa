@@ -1,8 +1,8 @@
 <template>
     
     <div>
-   List Item
-   {{item}}
+    {{item.id}}
+    {{item.name}}
     </div>
 
 </template>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    
+    props:['item'],
 }
 </script>
 
